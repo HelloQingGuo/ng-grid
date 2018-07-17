@@ -1,0 +1,54 @@
+// attribute name of class whose value is prefixed (preceded) by "col-".
+div[class^="col-"] {
+  min-height: 1px;
+  //   padding: 0 $gutter / 2;
+  flex: 0 0 auto;
+  display: block;
+  box-sizing: border-box;
+}
+
+@for $i from 1 through 24 {
+  .col-#{$i} {
+    width: (100% * $i / 24);
+  }
+}
+
+@for $i from 1 through 24 {
+  @media screen and (max-width: 576px) {
+    .col-xs-#{$i} {
+      width: (100% * $i / 24);
+    }
+  }
+}
+
+@for $i from 1 through 24 {
+  @media screen and (min-width: 576px) {
+    .col-sm-#{$i} {
+      width: (100% * $i / 24);
+    }
+  }
+}
+
+@for $i from 1 through 24 {
+  @media screen and (min-width: 768px) {
+    .col-md-#{$i} {
+      width: (100% * $i / 24);
+    }
+  }
+}
+
+@for $i from 1 through 24 {
+  @media screen and (min-width: 992px) {
+    .col-lg-#{$i} {
+      width: (100% * $i / 24);
+    }
+  }
+}
+
+@for $i from 1 through 24 {
+  @media screen and (min-width: 1200px) {
+    .col-xl-#{$i} {
+      width: (100% * $i / 24);
+    }
+  }
+}
