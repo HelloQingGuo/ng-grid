@@ -1,54 +1,54 @@
-// attribute name of class whose value is prefixed (preceded) by "col-".
-div[class^="col-"] {
+$prefixClass: "ng-grid-col";
+
+// attribute name of class whose value is prefixed (preceded) by "ng-grid-col".
+[class^="#{$prefixClass}"] {
   min-height: 1px;
-  //   padding: 0 $gutter / 2;
-  flex: 0 0 auto;
+  flex: 0 0 100%;
   display: block;
   box-sizing: border-box;
 }
 
 @for $i from 1 through 24 {
-  .col-#{$i} {
-    width: (100% * $i / 24);
+  .#{$prefixClass}-span-#{$i} {
+    flex-basis: (100% * $i / 24);
   }
 }
-
-@for $i from 1 through 24 {
-  @media screen and (max-width: 576px) {
-    .col-xs-#{$i} {
-      width: (100% * $i / 24);
+@media screen and (max-width: 576px) {
+  @for $i from 1 through 24 {
+    .#{$prefixClass}-xs-#{$i} {
+      flex-basis: (100% * $i / 24);
     }
   }
 }
 
-@for $i from 1 through 24 {
-  @media screen and (min-width: 576px) {
-    .col-sm-#{$i} {
-      width: (100% * $i / 24);
+@media screen and (min-width: 576px) {
+  @for $i from 1 through 24 {
+    .#{$prefixClass}-sm-#{$i} {
+      flex-basis: (100% * $i / 24);
     }
   }
 }
 
-@for $i from 1 through 24 {
-  @media screen and (min-width: 768px) {
-    .col-md-#{$i} {
-      width: (100% * $i / 24);
+@media screen and (min-width: 768px) {
+  @for $i from 1 through 24 {
+    .#{$prefixClass}-md-#{$i} {
+      flex-basis: (100% * $i / 24);
     }
   }
 }
 
-@for $i from 1 through 24 {
-  @media screen and (min-width: 992px) {
-    .col-lg-#{$i} {
-      width: (100% * $i / 24);
+@media screen and (min-width: 992px) {
+  @for $i from 1 through 24 {
+    .#{$prefixClass}-lg-#{$i} {
+      flex-basis: (100% * $i / 24);
     }
   }
 }
 
-@for $i from 1 through 24 {
-  @media screen and (min-width: 1200px) {
-    .col-xl-#{$i} {
-      width: (100% * $i / 24);
+@media screen and (min-width: 1200px) {
+  @for $i from 1 through 24 {
+    .#{$prefixClass}-xl-#{$i} {
+      flex-basis: (100% * $i / 24);
     }
   }
 }

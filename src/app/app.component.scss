@@ -1,10 +1,18 @@
+/* general styles */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  border: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
 }
 
 .content {
-  height: 400px;
+  height: 200px;
   background: #ddd;
+  margin-bottom: 14px;
 }
