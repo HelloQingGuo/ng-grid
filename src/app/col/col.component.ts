@@ -19,16 +19,34 @@ import { isNotNil } from "../util/check";
 export class ColComponent implements OnInit {
   private el: HTMLElement;
   private prefixClass = "ng-grid-col";
+
   @HostBinding("style.padding-left.px")
   get paddingLeft(): number {
-    return this.row && this.row.gutter / 2;
+    if (!isNotNil(this.row)) {
+      return 0;
+    }
+    if (typeof this.row.gutter === "number") {
+      return this.row.gutter / 2;
+    }
+    // TODO:
+    // if (typeof this.row.gutter === 'object') {
+
+    // }
   }
 
   @HostBinding("style.padding-right.px")
   get paddingRight(): number {
-    return this.row && this.row.gutter / 2;
-  }
+    if (!isNotNil(this.row)) {
+      return 0;
+    }
+    if (typeof this.row.gutter === "number") {
+      return this.row.gutter / 2;
+    }
+    // TODO:
+    // if (typeof this.row.gutter === 'object') {
 
+    // }
+  }
   get row(): RowComponent {
     return this.rowComponent;
   }
