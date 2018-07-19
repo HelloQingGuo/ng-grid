@@ -15,13 +15,13 @@ In NgGrid, we layout the content based on `row` and `column`, to ensure that eve
 
 These breakpoints are based on minimum viewport widths and allow us to scale elements as the viewport changes.
 
-| Breakpoints | Description                                            |
-| ----------- | ------------------------------------------------------ |
-| xs          | Extra small devices (portrait phones, less than 576px) |
-| sm          | Small devices (landscape phones, 576px and up)         |
-| md          | Medium devices (tablets, 768px and up)                 |
-| lg          | Large devices (desktops, 992px and up)                 |
-| xl          | Extra large devices (large desktops, 1200px and up)    |
+| Breakpoints | Description                                              |
+| ----------- | -------------------------------------------------------- |
+| xs          | Extra small devices (portrait phones, `less than 576px`) |
+| sm          | Small devices (landscape phones, `576px and up`)         |
+| md          | Medium devices (tablets, `768px and up`)                 |
+| lg          | Large devices (desktops, `992px and up`)                 |
+| xl          | Extra large devices (large desktops, `1200px and up`)    |
 
 ## Row
 
@@ -31,14 +31,14 @@ These breakpoints are based on minimum viewport widths and allow us to scale ele
 
 ## Col
 
-| Property | Description                                                    | Type   | Default |
-| -------- | -------------------------------------------------------------- | ------ | ------- |
-| span     | number of cells to occupy, [1, 24]                             | number | -       |
-| xs       | number of cells to occupy, [1, 24] when viewport is `< 576px`  | number | -       |
-| sm       | number of cells to occupy, [1, 24] when viewport is `≥ 576px`  | number | -       |
-| md       | number of cells to occupy, [1, 24] when viewport is `≥ 768px`  | number | -       |
-| lg       | number of cells to occupy, [1, 24] when viewport is `≥ 992px`  | number | -       |
-| xl       | number of cells to occupy, [1, 24] when viewport is `≥ 1200px` | number | -       |
+| Property | Description                                                      | Type   | Default |
+| -------- | ---------------------------------------------------------------- | ------ | ------- |
+| span     | number of grids to occupy, `[1, 24]`                             | number | -       |
+| xs       | number of grids to occupy, `[1, 24]` when viewport is `< 576px`  | number | -       |
+| sm       | number of grids to occupy, `[1, 24]` when viewport is `≥ 576px`  | number | -       |
+| md       | number of grids to occupy, `[1, 24]` when viewport is `≥ 768px`  | number | -       |
+| lg       | number of grids to occupy, `[1, 24]` when viewport is `≥ 992px`  | number | -       |
+| xl       | number of grids to occupy, `[1, 24]` when viewport is `≥ 1200px` | number | -       |
 
 ## Example
 
