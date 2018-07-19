@@ -1,27 +1,69 @@
 # NgGrid
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
+This is the implementation of responsive 24 grids system for angular application.
 
-## Development server
+## Overview
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+In NgGrid, we layout the content based on `row` and `column`, to ensure that every area can have stable arrangement.
 
-## Code scaffolding
+- Establish a set of `columns` in the horizontal space defined by a `row`
+- Content elements should be placed inside `col`, and only `col` could be placed inside `row`
+- The grid system uses value of 1 - 24 to represent its range. For example, three columns with same width can be created by `[span]="8"`).
+- If the sum of `col` spans in a `row` are more than 24, the extra `col` as a whole will be placed in a new line.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Responsive Breakpoints
 
-## Build
+These breakpoints are based on minimum viewport widths and allow us to scale elements as the viewport changes.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+| breakpoint | Size                                                               | Type   | Default |
+| ---------- | ------------------------------------------------------------------ | ------ | ------- |
+| align      | the vertical alignment of the flex layout: `top` `middle` `bottom` | string | `top`   |
 
-## Running unit tests
+## Row
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+| Property | Description                              | Type   | Default |
+| -------- | ---------------------------------------- | ------ | ------- |
+| gutter   | spacing between grids, could be a number | number | 0       |
 
-## Running end-to-end tests
+## Col
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+| Property | Description                                                                                     | Type           | Default |
+| -------- | ----------------------------------------------------------------------------------------------- | -------------- | ------- |
+| span     | number of cells to occupy                                                                       | number         | -       |
+| xs       | `< 576px` and also default setting, could be a `span` value or an object containing above props | number\|object | -       |
+| sm       | `≥ 576px`, could be a `span` value or an object containing above props                          | number         | -       |
+| md       | `≥ 768px`, could be a `span` value or an object containing above props                          | number         | -       |
+| lg       | `≥ 992px`, could be a `span` value or an object containing above props                          | number         | -       |
+| xl       | `≥ 1200px`, could be a `span` value or an object containing above props                         | number         | -       |
 
-## Further help
+## Example
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```javascript
+<ng-grid-row [gutter]="24">
+    <ng-grid-col [md]="16" [sm]="24">
+        <div class="content">
+           Your content goes here
+        </div>
+    </ng-grid-col>
+    <ng-grid-col [md]="8" [sm]="12">
+        <div class="content">
+           Your content goes here
+        </div>
+    </ng-grid-col>
+    <ng-grid-col [md]="8" [sm]="12">
+        <div class="content">
+           Your content goes here
+        </div>
+    </ng-grid-col>
+    <ng-grid-col [md]="8" [sm]="12">
+        <div class="content">
+           Your content goes here
+        </div>
+    </ng-grid-col>
+    <ng-grid-col [md]="8" [sm]="12">
+        <div class="content">
+           Your content goes here
+        </div>
+    </ng-grid-col>
+</ng-grid-row>
+```

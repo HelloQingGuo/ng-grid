@@ -8,19 +8,23 @@ $prefixClass: "ng-grid-col";
   box-sizing: border-box;
 }
 
+// this is the default non media query grid layout in NgGrid
 @for $i from 1 through 24 {
   .#{$prefixClass}-span-#{$i} {
     width: (100% * $i / 24);
   }
 }
 
+// Extra small devices (portrait phones, less than 576px)
+// No media query since this is the default in Bootstrap
 @for $i from 1 through 24 {
   .#{$prefixClass}-xs-#{$i} {
     width: (100% * $i / 24);
   }
 }
 
-@media screen and (min-width: 576px) {
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
   @for $i from 1 through 24 {
     .#{$prefixClass}-sm-#{$i} {
       width: (100% * $i / 24);
@@ -28,7 +32,8 @@ $prefixClass: "ng-grid-col";
   }
 }
 
-@media screen and (min-width: 768px) {
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
   @for $i from 1 through 24 {
     .#{$prefixClass}-md-#{$i} {
       width: (100% * $i / 24);
@@ -36,7 +41,8 @@ $prefixClass: "ng-grid-col";
   }
 }
 
-@media screen and (min-width: 992px) {
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
   @for $i from 1 through 24 {
     .#{$prefixClass}-lg-#{$i} {
       width: (100% * $i / 24);
@@ -44,7 +50,8 @@ $prefixClass: "ng-grid-col";
   }
 }
 
-@media screen and (min-width: 1200px) {
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
   @for $i from 1 through 24 {
     .#{$prefixClass}-xl-#{$i} {
       width: (100% * $i / 24);
