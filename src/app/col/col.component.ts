@@ -25,13 +25,7 @@ export class ColComponent implements OnInit {
     if (!isNotNil(this.row)) {
       return 0;
     }
-    if (typeof this.row.gutter === "number") {
-      return this.row.gutter / 2;
-    }
-    // TODO:
-    // if (typeof this.row.gutter === 'object') {
-
-    // }
+    return this.row._gutter / 2;
   }
 
   @HostBinding("style.padding-right.px")
