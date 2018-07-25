@@ -5,4 +5,12 @@ import { Component } from "@angular/core";
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"]
 })
-export class AppComponent {}
+export class AppComponent {
+  gutter = 24;
+
+  changeGutter() {
+    console.log("change gutter", this.gutter);
+
+    this.gutter += 8;
+  }
+}

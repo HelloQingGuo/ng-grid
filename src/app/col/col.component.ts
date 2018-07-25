@@ -36,17 +36,9 @@ export class ColComponent implements OnInit {
 
   @HostBinding("style.padding-right.px")
   get paddingRight(): number {
-    if (!isNotNil(this.row)) {
-      return 0;
-    }
-    if (typeof this.row.gutter === "number") {
-      return this.row.gutter / 2;
-    }
-    // TODO:
-    // if (typeof this.row.gutter === 'object') {
-
-    // }
+    return this.paddingLeft;
   }
+
   get row(): RowComponent {
     return this.rowComponent;
   }
