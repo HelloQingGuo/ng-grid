@@ -7,14 +7,8 @@ import { Component } from "@angular/core";
 })
 export class AppComponent {
   gutter = {
-    span: 8,
-    xs: 0,
+    span: 16,
+    xs: 8,
     md: 24
   };
-
-  changeGutter() {
-    console.log("change gutter", this.gutter);
-
-    // this.gutter += 8;
-  }
 }

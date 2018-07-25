@@ -25,8 +25,9 @@ const mediaQueryMap: MediaQueryMap = {
 })
 export class RowComponent implements OnInit {
   private el: HTMLElement;
-  private _gutter: number;
   private breakPoint: string;
+  // set it to public, to be used in Col component
+  _gutter: number;
   @Input() private gutter: number | Gutter;
 
   @HostBinding("style.marginRight.px")
