@@ -25,9 +25,9 @@ These breakpoints are based on minimum viewport widths and allow us to scale ele
 
 ## Row
 
-| Property | Description                                                              | Type   | Default |
-| -------- | ------------------------------------------------------------------------ | ------ | ------- |
-| gutter   | space between two grids, recommend `8n` px. n is a non-negative interger | number | 0       |
+| Property | Description                                                                                                                               | Type             | Default |
+| -------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------- |
+| gutter   | space between two grids, recommend `8n` px. n is a non-negative interger, or an object { span: 8, xs: 8, sm: 16, md: 24, lg: 32, xl: 32 } | number \| object | 0       |
 
 ## Col
 
@@ -42,8 +42,11 @@ These breakpoints are based on minimum viewport widths and allow us to scale ele
 
 ## Example
 
+    Gutter:
+    It will be `24px` when the screen size is `md`, 32px when it is `lg` or `xl`, 8px when it is `xs` and `sm`.
+
 ```javascript
-<ng-grid-row [gutter]="24">
+<ng-grid-row [gutter]={span: 8, md: 24, lg: 32}>
     <ng-grid-col [md]="16" [sm]="24">
         <div class="content">
            Your content goes here
