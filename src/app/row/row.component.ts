@@ -5,7 +5,8 @@ import {
   Input,
   Renderer2,
   ElementRef,
-  HostListener
+  HostListener,
+  ViewEncapsulation
 } from "@angular/core";
 import { Gutter } from "../gutter";
 import { MediaQueryMap } from "../mediaquery-map";
@@ -21,7 +22,8 @@ const mediaQueryMap: MediaQueryMap = {
 @Component({
   selector: "ng-grid-row",
   templateUrl: "./row.component.html",
-  styleUrls: ["./row.component.scss"]
+  styleUrls: ["./row.component.scss"],
+  encapsulation: ViewEncapsulation.None
 })
 export class RowComponent implements OnInit {
   private el: HTMLElement;

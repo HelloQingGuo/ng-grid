@@ -6,7 +6,8 @@ import {
   Host,
   ElementRef,
   Optional,
-  Renderer2
+  Renderer2,
+  ViewEncapsulation
 } from "@angular/core";
 import { RowComponent } from "../row/row.component";
 import { isNotNil } from "../util/check";
@@ -14,7 +15,8 @@ import { isNotNil } from "../util/check";
 @Component({
   selector: "ng-grid-col",
   templateUrl: "./col.component.html",
-  styleUrls: ["./col.component.scss"]
+  styleUrls: ["./col.component.scss"],
+  encapsulation: ViewEncapsulation.None
 })
 export class ColComponent implements OnInit {
   private el: HTMLElement;
