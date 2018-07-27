@@ -35,11 +35,6 @@ export class RowComponent implements OnInit, OnChanges {
   _gutter: number;
   @Input() private gutter: number | Gutter;
 
-  ngOnChanges() {
-    console.log(this.gutter);
-    this.updateGutter();
-  }
-
   @HostBinding("style.marginRight.px")
   get marginRight(): number {
     return -this._gutter / 2;
@@ -56,12 +51,15 @@ export class RowComponent implements OnInit, OnChanges {
     public cd: ChangeDetectorRef
   ) {
     this.el = this.elementRef.nativeElement;
-    this.cd.detach();
   }
 
   ngOnInit() {
     this.renderer.addClass(this.el, "ng-grid-row");
     this.watchMedia();
+  }
+
+  ngOnChanges() {
+    this.updateGutter();
   }
 
   getActualGutter(): number {
@@ -70,10 +68,13 @@ export class RowComponent implements OnInit, OnChanges {
     } else if (
       typeof this.gutter === "object" &&
       this.breakPoint &&
-      this.gutter[this.breakPoint] !== undefined
+      typeof this.gutter[this.breakPoint] === "number"
     ) {
       return this.gutter[this.breakPoint];
-    } else if (this.gutter.span) {
+    } else if (
+      typeof this.gutter === "object" &&
+      typeof this.gutter.span === "number"
+    ) {
       return this.gutter.span;
     }
     return 0;

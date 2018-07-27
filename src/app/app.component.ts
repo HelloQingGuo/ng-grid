@@ -7,12 +7,13 @@ import { Component, ViewEncapsulation } from "@angular/core";
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
-  // gutter = {
-  //   span: 16,
-  //   xs: 8,
-  //   md: 24
-  // };
-  gutter = "8";
+  gutter_1 = "8";
+
+  gutter_2 = {
+    span: 16,
+    lg: 40,
+    xl: 80
+  };
 
   toNumber(val: string): number {
     return Number(val);

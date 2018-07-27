@@ -1,10 +1,41 @@
 <fieldset>
     <legend>Gutter settings</legend>
-    <input type="range" name="gutter" min="0" max="48" step="8" [(ngModel)]="gutter" />
-    <h4>Gutter = {{gutter}} px</h4>
+    <input type="range" name="gutter" min="0" max="48" step="8" [(ngModel)]="gutter_1" />
+    <h4>Gutter = {{gutter_1}} px</h4>
 </fieldset>
 
-<ng-grid-row [gutter]="toNumber(gutter)">
+<ng-grid-row [gutter]="toNumber(gutter_1)">
+    <ng-grid-col [md]="16" [sm]="24">
+        <div class="content">
+            <span>Column</span>
+        </div>
+    </ng-grid-col>
+    <ng-grid-col [md]="8" [sm]="12">
+        <div class="content">
+            <span>Column</span>
+        </div>
+    </ng-grid-col>
+    <ng-grid-col [md]="8" [sm]="12">
+        <div class="content">
+            <span>Column</span>
+        </div>
+    </ng-grid-col>
+    <ng-grid-col [md]="8" [sm]="12">
+        <div class="content">
+            <span>Column</span>
+        </div>
+    </ng-grid-col>
+    <ng-grid-col [md]="8" [sm]="12">
+        <div class="content">
+            <span>Column</span>
+        </div>
+    </ng-grid-col>
+</ng-grid-row>
+
+<hr class="divider" />
+<h4>Gutter is an object, {{ '{ ' }}span: 16, lg: 40, xl: 80 {{ ' }' }}
+</h4>
+<ng-grid-row [gutter]="gutter_2">
     <ng-grid-col [md]="16" [sm]="24">
         <div class="content">
             <span>Column</span>
