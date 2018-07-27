@@ -12,10 +12,9 @@ export class AppComponent {
   //   xs: 8,
   //   md: 24
   // };
-  // gutter: string = "8";
-  gutter: number = 8;
+  gutter = "8";
 
-  add() {
-    this.gutter += 8;
+  toNumber(val: string): number {
+    return Number(val);
   }
 }

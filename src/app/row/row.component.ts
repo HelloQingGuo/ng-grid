@@ -6,7 +6,10 @@ import {
   Renderer2,
   ElementRef,
   HostListener,
-  ViewEncapsulation
+  ViewEncapsulation,
+  ChangeDetectorRef,
+  OnChanges,
+  SimpleChanges
 } from "@angular/core";
 import { Gutter } from "../gutter";
 import { MediaQueryMap } from "../mediaquery-map";
@@ -25,26 +28,21 @@ const mediaQueryMap: MediaQueryMap = {
   styleUrls: ["./row.component.scss"],
   encapsulation: ViewEncapsulation.None
 })
-export class RowComponent implements OnInit {
+export class RowComponent implements OnInit, OnChanges {
   private el: HTMLElement;
   private breakPoint: string;
-  private _gutter: number | object;
   // set it to public, to be used in Col component
-  actual_gutter: number;
-  // @Input() private gutter: number | Gutter;
-  @Input()
-  get gutter(): number | Gutter {
-    return this._gutter;
-  }
+  _gutter: number;
+  @Input() private gutter: number | Gutter;
 
-  set gutter(value: number | Gutter) {
-    this._gutter = value;
+  ngOnChanges() {
+    console.log(this.gutter);
     this.updateGutter();
   }
 
   @HostBinding("style.marginRight.px")
   get marginRight(): number {
-    return -this.actual_gutter / 2;
+    return -this._gutter / 2;
   }
 
   @HostBinding("style.marginLeft.px")
@@ -52,8 +50,13 @@ export class RowComponent implements OnInit {
     return this.marginRight;
   }
 
-  constructor(private renderer: Renderer2, private elementRef: ElementRef) {
+  constructor(
+    private renderer: Renderer2,
+    private elementRef: ElementRef,
+    public cd: ChangeDetectorRef
+  ) {
     this.el = this.elementRef.nativeElement;
+    this.cd.detach();
   }
 
   ngOnInit() {
@@ -77,7 +80,7 @@ export class RowComponent implements OnInit {
   }
 
   updateGutter(): void {
-    this.actual_gutter = this.getActualGutter();
+    this._gutter = this.getActualGutter();
   }
 
   @HostListener("window:resize", ["$event"])

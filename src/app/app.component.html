@@ -1,10 +1,10 @@
 <fieldset>
     <legend>Gutter settings</legend>
-    <!-- <input type="range" name="gutter" min="0" max="48" step="8" [(ngModel)]="gutter" /> -->
+    <input type="range" name="gutter" min="0" max="48" step="8" [(ngModel)]="gutter" />
+    <h4>Gutter = {{gutter}} px</h4>
 </fieldset>
-{{gutter}}
-<button (click)="add()">click</button>
-<ng-grid-row [gutter]="gutter">
+
+<ng-grid-row [gutter]="toNumber(gutter)">
     <ng-grid-col [md]="16" [sm]="24">
         <div class="content">
             <span>Column</span>
