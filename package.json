@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve -o --port 4203",
     "build": "ng build",
+    "deploy": "ng build --prod --deploy-url ng-grid/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
