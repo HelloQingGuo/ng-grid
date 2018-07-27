@@ -28,13 +28,23 @@ const mediaQueryMap: MediaQueryMap = {
 export class RowComponent implements OnInit {
   private el: HTMLElement;
   private breakPoint: string;
+  private _gutter: number | object;
   // set it to public, to be used in Col component
-  _gutter: number;
-  @Input() private gutter: number | Gutter;
+  actual_gutter: number;
+  // @Input() private gutter: number | Gutter;
+  @Input()
+  get gutter(): number | Gutter {
+    return this._gutter;
+  }
+
+  set gutter(value: number | Gutter) {
+    this._gutter = value;
+    this.updateGutter();
+  }
 
   @HostBinding("style.marginRight.px")
   get marginRight(): number {
-    return -this._gutter / 2;
+    return -this.actual_gutter / 2;
   }
 
   @HostBinding("style.marginLeft.px")
@@ -67,7 +77,7 @@ export class RowComponent implements OnInit {
   }
 
   updateGutter(): void {
-    this._gutter = this.getActualGutter();
+    this.actual_gutter = this.getActualGutter();
   }
 
   @HostListener("window:resize", ["$event"])

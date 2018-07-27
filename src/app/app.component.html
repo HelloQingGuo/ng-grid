@@ -1,27 +1,33 @@
+<fieldset>
+    <legend>Gutter settings</legend>
+    <!-- <input type="range" name="gutter" min="0" max="48" step="8" [(ngModel)]="gutter" /> -->
+</fieldset>
+{{gutter}}
+<button (click)="add()">click</button>
 <ng-grid-row [gutter]="gutter">
     <ng-grid-col [md]="16" [sm]="24">
         <div class="content">
-            here is the content !!!
+            <span>Column</span>
         </div>
     </ng-grid-col>
     <ng-grid-col [md]="8" [sm]="12">
         <div class="content">
-            here is the content !!!
+            <span>Column</span>
         </div>
     </ng-grid-col>
     <ng-grid-col [md]="8" [sm]="12">
         <div class="content">
-            here is the content !!!
+            <span>Column</span>
         </div>
     </ng-grid-col>
     <ng-grid-col [md]="8" [sm]="12">
         <div class="content">
-            here is the content !!!
+            <span>Column</span>
         </div>
     </ng-grid-col>
     <ng-grid-col [md]="8" [sm]="12">
         <div class="content">
-            here is the content !!!
+            <span>Column</span>
         </div>
     </ng-grid-col>
 </ng-grid-row>

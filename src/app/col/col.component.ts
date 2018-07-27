@@ -27,7 +27,7 @@ export class ColComponent implements OnInit {
     if (!isNotNil(this.row)) {
       return 0;
     }
-    return this.row._gutter / 2;
+    return this.row.actual_gutter / 2;
   }
 
   @HostBinding("style.padding-right.px")
