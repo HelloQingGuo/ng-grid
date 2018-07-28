@@ -7,7 +7,8 @@ import {
   ElementRef,
   Optional,
   Renderer2,
-  ViewEncapsulation
+  ViewEncapsulation,
+  OnChanges
 } from "@angular/core";
 import { RowComponent } from "../row/row.component";
 import { isNotNil } from "../util/check";
@@ -18,7 +19,7 @@ import { isNotNil } from "../util/check";
   styleUrls: ["./col.component.scss"],
   encapsulation: ViewEncapsulation.None
 })
-export class ColComponent implements OnInit {
+export class ColComponent implements OnInit, OnChanges {
   private el: HTMLElement;
   private prefixClass = "ng-grid-col";
 
@@ -57,7 +58,13 @@ export class ColComponent implements OnInit {
     this.el = this.elementRef.nativeElement;
   }
 
-  updateHostClass(): void {
+  updateHostClass(classMap: object): void {
+    Object.keys(this.classMap).forEach(prop => {
+      if (this.classMap[prop]) {
+        this.renderer.removeClass(this.el, prop);
+      }
+    });
+    this.classMap = classMap;
     Object.keys(this.classMap).forEach(prop => {
       if (this.classMap[prop]) {
         this.renderer.addClass(this.el, prop);
@@ -67,16 +74,21 @@ export class ColComponent implements OnInit {
 
   generateClassMap(): void {
     const listOfSize = ["span", "xs", "sm", "md", "lg", "xl"];
+    const classMap = {};
     listOfSize.forEach(size => {
-      this.classMap[`${this.prefixClass}-${size}-${this[size]}`] = isNotNil(
+      classMap[`${this.prefixClass}-${size}-${this[size]}`] = isNotNil(
         this[size]
       );
     });
 
-    this.updateHostClass();
+    this.updateHostClass(classMap);
   }
 
   ngOnInit() {
+    this.generateClassMap();
+  }
+
+  ngOnChanges() {
     this.generateClassMap();
   }
 }

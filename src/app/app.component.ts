@@ -15,6 +15,7 @@ export class AppComponent {
     xl: 80
   };
 
+  grid = "4";
   toNumber(val: string): number {
     return Number(val);
   }
