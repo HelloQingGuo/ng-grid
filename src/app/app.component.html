@@ -4,14 +4,16 @@
     <input type="range" name="gutter" min="1" max="24" step="1" [(ngModel)]="grid" />
     <h4>grid = col-md-{{grid}} </h4>
 </fieldset>
-<ng-grid-row [gutter]="toNumber(gutter_1)">
+<ng-grid-row>
     <ng-grid-col [md]="toNumber(grid)">
         <div class="content">
             <span>Column</span>
         </div>
     </ng-grid-col>
 </ng-grid-row>
+
 <hr class="divider" />
+
 <fieldset>
     <legend>Gutter settings</legend>
     <input type="range" name="gutter" min="0" max="48" step="8" [(ngModel)]="gutter_1" />
