@@ -42,11 +42,10 @@ These breakpoints are based on minimum viewport widths and allow us to scale ele
 
 ## Example
 
-Gutter:
-It will be `24px` when the screen size is `md`, 32px when it is `lg` or `xl`, 8px when it is `xs` and `sm`.
+Gutter will be `24px` when the viewport is `md`, `32px` when it is `lg` or `xl`, `8px` when it is `xs` and `sm`.
 
 ```javascript
-<ng-grid-row [gutter]={span: 8, md: 24, lg: 32}>
+<ng-grid-row [gutter]="{span: 8, md: 24, lg: 32}">
     <ng-grid-col [md]="16" [sm]="24">
         <div class="content">
            Your content goes here
